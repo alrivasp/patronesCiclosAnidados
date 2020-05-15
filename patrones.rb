@@ -1,201 +1,153 @@
+#Desarrollado de manera Dinamica funciona con N numeros
 def letra_o(n)
     result = ""
-    for i in (1..5)
-        for b in (1..n)
-            if i == 1 || i == 5
-                result += "*"
-            elsif i == 2 || i == 3 || i == 4
-                if b == 1 || b == 5
-                    result += "*"
-                else
-                    result += " "
-                end
-            end
-        end
-        result += "\n"
-    end
+    n.times do |i|
+        if i == 0 || (i+1) == n
+            n.times {result += "*"}            
+        else
+            result += "*"
+            (n-2).times { result += " "}               
+            result += "*"
+        end      
+        result += "\n"  
+    end   
     result
 end
 
+#Desarrollado de manera Dinamica funciona con N numeros
+#Usar solo con Pares
 def letra_i(n)
     result = ""
-    for i in (1..5)        
-        for b in (1..n)           
-            if i == 1 || i == 5
-                result += "*"
-            elsif i == 2 || i == 3 || i == 4
-                if b == 3
+    n.times do |i|
+        if i == 0 || i == n-1
+            n.times {result += "*"}            
+        else
+            n.times do |b|
+                if (n-1)/2 == b
                     result += "*"
                 else
                     result += " "
                 end
             end
-        end
-        result += "\n"
-    end
+        end      
+        result += "\n"  
+    end   
     result
 end
 
+#Desarrollado de manera Dinamica funciona con N numeros
 def letra_z(n)
     result = ""
-    for i in (1..5)
-        for b in (1..n)
-            if i == 1 || i == 5
-                result += "*"
-            elsif i == 2
-                if b == 4
-                    result += "*"
-                else
-                    result += " "
-                end
-            elsif i == 3
-                if b == 3
-                    result += "*"
-                else
-                    result += " "
-                end
-            elsif i == 4
-                if b == 2
+    t = n-1
+    n.times do |i|        
+        if i == 0 || i == n-1
+            n.times {result += "*"}            
+        else                          
+            n.times do |b|                             
+                if  t == b
                     result += "*"
                 else
                     result += " "
                 end
             end
-        end
-        result += "\n"
-    end
+        end  
+        t -= 1    
+        result += "\n"  
+    end   
     result
 end
 
+#Desarrollado de manera Dinamica funciona con N numeros
+#Usar solo con Pares
 def letra_x(n)
-    result = ""
-    for i in (1..5)
-        for c in (1..n)
-            if i == 1 || i ==5
-                if c == 1 || c == 5
-                    result += "*"  
+    result = ""    
+    t = n-1
+    n.times do |i|        
+        if i == 0 || i == n-1
+            n.times do |b|
+                if b == 0 || b == n-1
+                    result += "*"
                 else
-                    result += " "  
+                    result += " "
                 end
-            elsif i == 2 || i == 4
-                if c == 2 || c == 4
-                    result += "*"  
+            end        
+        else
+            n.times do |b|                             
+                if  t == b
+                    result += "*"
+                elsif i == b
+                    result += "*"
                 else
-                    result += " "  
+                    result += " "
                 end
-            elsif i == 3 
-                if c == 3
-                    result += "*"  
-                else
-                    result += " "  
-                end
-            end            
-        end    
-        result += "\n"    
-    end
+            end           
+        end   
+        t -= 1
+        result += "\n"  
+    end   
     result
 end
 
+#Desarrollado de manera Dinamica funciona con N numeros
+#Usar solo con Pares
 def numero_cero(n)
-    result = ""
-    for i in (1..5)
-        for b in (1..n)
-            if i== 1 || i == 5
+    result = ""    
+    n.times do |i|        
+        if i == 0 || i == n-1
+            n.times do |b|               
                 result += "*"
-            elsif i == 2
-                if b == 1 || b == 2 || b == 5
+            end        
+        else
+            n.times do |b|                             
+                if  b == 0 || b == n-1
+                    result += "*"
+                elsif i == b
                     result += "*"
                 else
                     result += " "
                 end
-            elsif i == 3
-                if b == 1 || b == 3 || b == 5 
-                    result += "*"
-                else
-                    result += " "
-                end
-            elsif i == 4
-                if b == 1 || b == 4 || b == 5 
-                    result += "*"
-                else
-                    result += " "
-                end
-            end
-        end
-        result += "\n"    
-    end
+            end           
+        end           
+        result += "\n"  
+    end   
     result
 end
 
-# Se desarrolla deacuerdo a n=5 del desafio que indica dimenciones de 5 * 7 caracteres
+#Desarrollado de manera Dinamica funciona con N numeros
+#Usar solo con Pares
 def navidad(n)
     result = ""
-    for i in (1..7)
-        for b in (1..n)
-            if i == 1 || i == 5 || i == 6
-                if b == 3
-                    result += "*" 
+    n.times do |ind| 
+      i = ind + 1      
+      (n-i).times do 
+        result += " "
+      end
+      i.times do
+        result +=  "* " 
+      end
+      result +=  "\n" 
+    end
+    
+    3.times do |i|
+        if i != 2
+            n.times do |b|
+                if (n+1)/2 == b+1
+                    result += "* "
                 else
-                    result += " " 
-                end
-            elsif i == 2 
-                if b == 2 || b == 4
-                    result += "*" 
+                    result += "  "
+                end        
+            end
+            result += "\n"
+        else
+            n.times do |b|                
+                if ((n+1)/2)-2 == b || ((n+1)/2)-1 == b || (n+1)/2 == b
+                    result += "* "
                 else
-                    result += " " 
-                end
-            elsif i == 3 || i == 7
-                if b == 2 || b == 3 || b == 4
-                    result += "*" 
-                else
-                    result += " " 
-                end
-            elsif i == 4 
-                if b == 1 || b == 2 || b == 4 || b == 5
-                    result += "*" 
-                else
-                    result += " " 
-                end            
+                    result += "  "
+                end                
             end
         end
-        result += "\n"    
-    end
-    result
-end
-
-# Se desarrolla deacuerdo a imagen del desafio que indica dimenciones de 7 * 7 caracteres
-def navidad2(n)
-    result = ""
-    for i in (1..7)
-        for b in (1..n)
-            if i == 1 || i == 5 || i == 6
-                if b == 4
-                    result += "*" 
-                else
-                    result += " " 
-                end
-            elsif i == 2 
-                if b == 3 || b == 5
-                    result += "*" 
-                else
-                    result += " " 
-                end
-            elsif i == 3 || i == 7
-                if b == 2 || b == 4 || b == 6
-                    result += "*" 
-                else
-                    result += " " 
-                end
-            elsif i == 4 
-                if b == 1 || b == 3 || b == 5 || b == 7
-                    result += "*" 
-                else
-                    result += " " 
-                end            
-            end
-        end
-        result += "\n"    
-    end
+    end 
     result
 end
 
@@ -211,5 +163,4 @@ puts numero_cero(5)
 puts "----------"
 puts navidad(5)
 puts "----------"
-puts navidad2(7)
 
