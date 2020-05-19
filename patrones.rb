@@ -60,32 +60,22 @@ end
 #Desarrollado de manera Dinamica funciona con N numeros
 #Usar solo con Pares
 def letra_x(n)
-    result = ""    
+    result = "" 
     t = n-1
-    n.times do |i|        
-        if i == 0 || i == n-1
-            n.times do |b|
-                if b == 0 || b == n-1
-                    result += "*"
-                else
-                    result += " "
-                end
-            end        
-        else
-            n.times do |b|                             
-                if  t == b
-                    result += "*"
-                elsif i == b
-                    result += "*"
-                else
-                    result += " "
-                end
-            end           
-        end   
-        t -= 1
-        result += "\n"  
-    end   
-    result
+    (n).times do |i|        
+        n.times do |b|                             
+            if  t == b 
+                result += "*"
+            elsif i == b
+                result +=  "*"
+            else
+                result += " "
+            end
+        end      
+        t -= 1     
+        result += "\n"
+      end
+      result
 end
 
 #Desarrollado de manera Dinamica funciona con N numeros
